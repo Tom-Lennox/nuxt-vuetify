@@ -21,7 +21,8 @@ $ yarn generate
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
-# ==
+# ==環境構築、情報
+
 nuxt+vuetify
 
 create-nuxt-app v2.12.0
