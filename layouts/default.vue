@@ -72,6 +72,11 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'tutorial',
           to: '/tutorial'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'company',
+          to: '/company'
         }
       ],
       miniVariant: false,
