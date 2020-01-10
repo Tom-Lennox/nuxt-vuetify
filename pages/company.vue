@@ -52,10 +52,89 @@
       <p>x color: this.textColor,</p>
       <p>o color: 'red',</p>
       <!-- 34, 35, 36 -->
-      <p v-if="showVif % 3 === 0">v-if = true</p>
-      <p v-else-if="showVif % 3 === 1">v-else-if = true</p>
-      <p v-else>v-else = true</p>
-      <v-btn @click="plus">+1</v-btn>
+      [34, 35, 36]
+      <p>
+        <v-btn @click="vIfCounter += 1">+1</v-btn>
+        {{ vIfCounter }} % 3 でv-ifを切り替え
+      </p>
+      <p v-if="vIfCounter % 3 === 0">[0]v-if = true</p>
+      <p v-else-if="vIfCounter % 3 === 1">[1]v-else-if = true</p>
+      <p v-else>[2]v-else = true</p>
+      <!-- 39 -->
+      <v-btn @click="toggleTemplate39 = !toggleTemplate39">toggleTemplate39</v-btn>
+      <template v-if="toggleTemplate39">
+        <p>１行目</p>
+        <p>２行目</p>
+        <p>３行目</p>
+      </template>
+      <!-- 40 -->
+      <v-btn @click="vShow40 = !vShow40">vShow40</v-btn>
+      <p v-show="vShow40">v-show40</p>
+      <!-- 41, 42 -->
+      [41, 42]リスト表示
+      <ul>
+        <li v-for="facility in Facilities" :key="facility">{{ facility }}</li>
+      </ul>
+      <hr />
+      <!-- 43, 44 -->
+      [43, 44]objectをリスト表示
+      <ul>
+        <li
+          v-for="(weight, index, key) in weights"
+          :key="weight"
+        >weight:{{ weight }} | index:{{ index }} | key:{{ key }}</li>
+      </ul>
+      <small>
+        <p>- objectをv-forで表示すると、順番が担保されない。</p>
+        <p>- :keyにbindするのは通常「変数名」</p>
+        <p>（keyは要素の増減で変わるので、:keyにbindしない。）</p>
+      </small>
+      <!-- 45 -->
+      [45]li要素に下線を引きたい。
+      <ul>
+        <template v-for="facility in Facilities">
+          <li>{{ facility }}</li>
+          <hr />
+        </template>
+      </ul>
+      <small>- templateで囲めばok</small>
+      <!--  -->
+      <p>[46]v-forで変数のみ表示</p>
+      <ul>
+        <li v-for="n in 10">{{ n }}</li>
+      </ul>
+      <small>- "n in 10"等で回せば早い。</small>
+      <!--  -->
+      <p>[47]"n of 10"でも回せる。</p>
+      <ul>
+        <li v-for="n in 10">{{ n }}</li>
+      </ul>
+      <small>- jsのイテレーター構文使用しているだけ。</small>
+      <!--  -->
+      <div>
+        <p>[48]key</p>
+        <div v-for="fruit in fruits48" :key="fruit">
+          {{ fruit }}
+          <!-- <v-text-field> -->
+        </div>
+        <small>
+          <p>- objectをv-forで表示すると、順番が担保されない。</p>
+        </small>
+      </div>
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
       <!--  -->
       <blockquote class="blockquote">
         <footer>
@@ -91,7 +170,17 @@ export default {
       pBackground02: {
         background: 'blue'
       },
-      showVif: 0
+      showVif: 0,
+      vIfCounter: 0,
+      toggleTemplate39: true,
+      vShow40: true,
+      Facilities: ['ダンベル', 'バーベル', 'ケトル'],
+      weights: {
+        light: '5kg',
+        normal: '10kg',
+        heavy: '100kg'
+      },
+      fruits48: ['ふじ', 'サンつがる', 'シナノスイート']
     }
   },
   computed: {
