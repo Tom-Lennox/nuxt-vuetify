@@ -230,5 +230,5 @@ export default {
 }
 .bg-blue {
   background-color: blue;
-}aaa
+}aaaa
 </style>  
